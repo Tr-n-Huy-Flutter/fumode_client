@@ -29,11 +29,7 @@ class MyApp extends StatelessWidget {
           child: Center(
             child: Text(
               'Hello, Fumode UI!',
-              style: TextStyle(
-                color: ui.AppColors.primaryOrange,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.displayMedium,
             ),
           ),
         ),
