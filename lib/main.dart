@@ -15,21 +15,31 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       useInheritedMediaQuery: true,
       splitScreenMode: true,
-      builder: (_, child) {
+      builder: (_, _) {
         return MaterialApp(
           title: 'Fumode',
           debugShowCheckedModeBanner: false,
           theme: ui.ThemeConfig.defaultLight,
-          home: child,
+          home: HomeWidget(),
         );
       },
-      child: Scaffold(
-        body: Container(
-          color: Colors.white,
-          child: Center(
-            child: Text(
-              'Hello, Fumode UI!',
-              style: Theme.of(context).textTheme.displayMedium,
+    );
+  }
+}
+
+class HomeWidget extends StatelessWidget {
+  const HomeWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        color: Colors.white,
+        child: Center(
+          child: Text(
+            'Hello, Fumode UI!',
+            style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+              color: Theme.of(context).colorScheme.primary,
             ),
           ),
         ),
