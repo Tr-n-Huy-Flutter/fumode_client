@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fumode_client_mobile/router/app_router.dart';
 import 'package:fumode_ui/fumode_ui.dart' as ui;
 
 void main() {
@@ -11,39 +12,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appRouter = AppRouter();
+
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       useInheritedMediaQuery: true,
       splitScreenMode: true,
       builder: (_, _) {
-        return MaterialApp(
-          title: 'Fumode',
+        return MaterialApp.router(
+          title: 'FuMode',
+          routerDelegate: appRouter.delegate(),
+          routeInformationParser: appRouter.defaultRouteParser(),
           debugShowCheckedModeBanner: false,
           theme: ui.ThemeConfig.defaultLight,
-          home: HomeWidget(),
+          builder: (context, child) {
+            return child!;
+          },
         );
       },
-    );
-  }
-}
-
-class HomeWidget extends StatelessWidget {
-  const HomeWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: Center(
-          child: Text(
-            'Hello, Fumode UI!',
-            style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-              color: Theme.of(context).colorScheme.primary,
-            ),
-          ),
-        ),
-      ),
     );
   }
 }
