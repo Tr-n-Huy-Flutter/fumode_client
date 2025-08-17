@@ -13,7 +13,9 @@ dependencies:
   flutter:
     sdk: flutter
   fumode_ui:
-    path: D:/WorkSpace/fumode_ui
+    git:
+      url: git@github.com:Tr-n-Huy-Flutter/fumode_ui.git
+      ref: develop
 
   cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3
